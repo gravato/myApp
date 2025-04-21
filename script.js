@@ -1,25 +1,39 @@
-function somar() {
-  let num1 = parseFloat(document.getElementById('num1').value);
-  let num2 = parseFloat(document.getElementById('num2').value);
-  
-  if (!isNaN(num1) && !isNaN(num2)) {
-      let soma = num1 + num2;
-      document.getElementById('resultado').textContent = `Resultado: ${soma}`;
-  } else {
-      document.getElementById('resultado').textContent = "Por favor, insira números válidos.";
-  }
+const numero1 = document.getElementById('numero1');
+const numero2 = document.getElementById('numero2');
+const bttSomar = document.getElementById('bttSomar')
+const resultado = document.getElementById('resultado');
+
+/* sem arrow function
+bttSomar.addEventListener('click', somar);
+
+function somar(){
+    let a = parseFloat(numero1.value);
+    let b = parseFloat(numero2.value);
+    let soma = a + b;
+    /*resultado.textContent = a + ' + ' + b + ' = ' + soma;
+    resultado.textContent = `${a} + ${b} = ${soma}`
 }
+*/
+
+/* com arrow function */
+
+bttSomar.addEventListener('click', () => {
+    let a = parseFloat(numero1.value);
+    let b = parseFloat(numero2.value);
+    let soma = a + b;
+    /*resultado.textContent = a + ' + ' + b + ' = ' + soma;*/
+    resultado.textContent = `${a} + ${b} = ${soma}`
+})
 
 // Verifica se o navegador suporta Service Workers
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js') // Caminho para o arquivo sw.js
         .then((registration) => {
-          console.log('Service Worker registrado com sucesso:', registration.scope);
+          console.log('Service Worker registado com sucesso:', registration.scope);
         })
         .catch((error) => {
-          console.log('Falha ao registrar o Service Worker:', error);
+          console.log('Falha ao registar o Service Worker:', error);
         });
     });
   }
-

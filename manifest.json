@@ -1,5 +1,5 @@
 {
-    "name": "Minha Calculadora",
+    "name": "Calculadora simples",
     "short_name": "MyCalc",
     "start_url": "./index.html",
     "scope": "./",
